@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <link href="estilos.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="saida" class="saida"></div>
+        <div id="box"></div>
+
+        <script lang="JavaScript">
+			
+			/* Questão 1 */
+            function Questao1(string) {
+                saida.innerText = string.substring(0,4);
+            }
+			
+			/* Questão 2 */
+            function Questao2(cidades) {
+                var result = "";
+                var item;
+                var nomes = "";
+                var separador = "";
+                for (item in cidades) {
+                    var nome = cidades[item];
+                    if (nome.toLocaleLowerCase()[0] == "s") {
+                        nomes += separador + nome;
+                        separador = ", ";
+                    }
+                }
+                result = nomes.split(",");
+                saida.innerText = nomes;
+                return result;
+            }
+			
+			/* Questão 4 */
+            function Questao4(posicao) {
+                box.style.visibility = "visible";
+                box.style.left = posicao + "px";
+                box.style.top = posicao + "px";
+                if (posicao < 100) {
+                    setTimeout(Questao4, 10, posicao + 1);
+                }
+                else {
+                    box.style.visibility = "hidden";
+                }
+            }
+
+            /* Questão 5 */
+            var Empregado = function (nome, sobrenome, salarioMensal) {
+                this.nome = nome;
+                this.sobrenome = sobrenome;
+                this.salarioMensal = salarioMensal;
+
+                this.CalcularSalarioAno = function () {
+                    return this.salarioMensal * 12;
+                }
+
+                this.DadosEmpregado = function () {
+                    return this.nome + " " + this.sobrenome + ", Salário: " + salarioMensal;
+                }
+            }
+
+            function Questao5() {
+                var empregado = new Empregado('Luis', 'Ferreira', '2000,00');
+                saida.innerText = empregado.DadosEmpregado();
+            }
+
+        </script>
+        <p>
+        <input type="button" value="Questão 1" onclick="Questao1('Exemplo');"/>
+        <input type="button" value="Questão 2" onclick="Questao2(['Salvador', 'São paulo', 'Rio de Janeiro', 'Tocantins']);"/>
+        <input type="button" value="Questão 4" onclick="Questao4(0);"/>
+		<input type="button" value="Questão 5" onclick="Questao5();"/>
+        </p>
+    </body>
+</html>

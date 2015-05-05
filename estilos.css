@@ -1,0 +1,20 @@
+﻿body {
+}
+
+.saida
+{
+    padding: 10px;
+    background-color: #000000;
+    font-family: fixedsys;
+    color: #FFFFFF;
+    width: 300px;
+    height: 100px;
+}
+
+#box
+{
+    background: yellow;
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
