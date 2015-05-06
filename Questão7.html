@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+    <h3> Minha Lista </h3>
+    <input id="novaTarefa" type="text">
+    <button id="botaoInserir">Incluir</button>
+    <ul id="lista"></ul>
+
+     <script>
+         var list = [];
+         var botaoInserir = document.getElementById('botaoInserir');
+         var inserirTarefa = function () {
+             var tarefa = document.getElementById('novaTarefa').value;
+             if (tarefa != '') {
+                 list.push(tarefa);
+                 printTarefas(tarefa);
+                 clear();
+             }else{
+                 alert('Digite uma tarefa');
+             }
+         };
+         var printTarefas = function (novaTarefa) {
+             var lista = document.getElementById('lista');
+             var li = document.createElement('li');
+             li.innerHTML = '<label>' + novaTarefa  + '</label>';
+             lista.appendChild(li);
+         };
+         function clear() {
+             document.getElementById('novaTarefa').value = '';
+         }
+         botaoInserir.onclick = inserirTarefa;
+    </script>
+</body>
+</html>
